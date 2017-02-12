@@ -1,0 +1,88 @@
+What is Node.js?
+
+It is a Javascript runtime built on Chrome V8 Javascript Engine;Initiated by Ryan Dahl in 2009;
+The Chrome V8 engine is itself derived from the Chromium project, and the Chrome V8 engine was designed for running JavaScript 
+in the browser.
+When the V8 engine is separated from the browser and made available on the machine, you can have an environment built for running Javascript
+applications on your computer separate from the browswer;
+
+-> Uses an event-driven, non-blocking I/O model, this makes it light weight and efficient;
+Node runs as a single threaded application but still is able to service a large number of requests because of the way node applications are
+designed, in particular asynchronous programming , asyncronous I/O model, callbacks features and some of the Javascript feature itself
+like - first class function in Javascript and callback support in Javascript;
+
+Node Architecture
+-----------------
+Node runtime can be viewed as a multilayered architecture;
+
+------------------------------------------------------------------------------------------------------------------------
+              Node Core / Standard Library (JS)
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+               Node Bindings (C++)
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------              --------------------------------------------
+    Chrome V8 (C++)                                                         libuv(C)
+---------------------------------------------------------           ---------------------------------------------    
+Bottom Layer -> Chrome V8 engine -> written in C++; libuv -> enables to interact with the underlying hardware;
+Middle Layer -> Node Bindings (C++);
+Top Layer -> Node Core or standard library;
+
+Node.js Use Cases
+--------------------
+1. Utilities written in Javascript for web development -> Bower, Grunt, Gulp, Yeoman, etc;
+2. Server-side Development -> Web Server, Business logic, Database access;
+
+NPM(Node Package Manager)
+---------------------------
+Manages the ecosystem of node modules/packages;
+-> A Package contains:
+------------------------
+i. JS file
+ii. package.json (manifest)
+-------------------------------------------------------------------------------------------------------------------------------------
+Node Modules
+------------
+JavaScript Modules
+-----------------
+-> JavaScript was initially defined for the web it does not define a standard library;
+-> But now it is used to run server side code as well;
+-> The CommonJS API came in to fill in this gap by defining APIs for typical common application needs and providing it a standard 
+library;
+-> When CommonJS came in, it used a module format to be used when you design your libraries;
+-> Nodejs allows to write javascript applications that run outside the browser, then Node.js adopted the common JS module format.
+-> That's what Node.js uses to organize the code.
+
+More about Node Modules
+---------------------
+-> Each file in the Node is its own module;The boundary is a file;
+-> The module variable gives access to the current module definition in the file;
+-> The module.exports variable determines the export from the current module;
+-> The require function is used to import a module;
+
+Module Example
+--------------------------------------------------------------------
+
+a. rectangle module:
+-----------------------
+module.exports = function() {
+  return {
+    perimeter: function(x, y) {return(2 * (x+y));},
+    area: function(x, y) { return(x*y);}
+  };
+}
+
+(or)
+//exports is alias for module.exports
+
+exports.perimeter = function(x,y) {
+  return (2*(x+y));
+}
+
+exports.area = function(x,y){
+  return (x*y);
+}
+
+b. Using this module:
+--------------------------
+var rect = require('./rectangle);
