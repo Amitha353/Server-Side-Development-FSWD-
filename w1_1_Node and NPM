@@ -224,7 +224,11 @@ executed in due course when its turn comes;
      -> node_modules (dependent modules);
      
      Versions -> Semantic versioning system, 3 digits -> major, minor, patch version;
-     
    --------------------------------------------------------------------------------------------
-   
+   Semantic Versioning
+   -------------------
+   <Major Version>.<Minor Version>.<Patch>;
+   Exact : npm install express@4.0.0
+   patch: acceptable higher: npm install express@"~4.0.0"
+   minor version: npm install express@"^4.0.0"
       
