@@ -86,3 +86,145 @@ exports.area = function(x,y){
 b. Using this module:
 --------------------------
 var rect = require('./rectangle);
+
+------------------------------------------------
+Running in the terminal -> cmd within the project folder:
+-> node filename;
+------------------------------------------------------------------------------------
+Node Modules: Callbacks and Error Handlings
+
+-> 2 Salient Features of JavaScript
+-------------------------------------
+a. First-Class functions -> A function can be treated the same way as any other variable;
+-------------------------
+b. Closures -> 
+------------
+A function defined inside another function has access to all the variables declared in the outer function (outer scope);
+The inner function will continue to have access to the variables from the outer scope even after the outer function
+has returned;
+
+Node applications make use of asynchronous programming;
+---------------------------------------------------------------------------------------------------------------------------
+Asynchronous programming
+-------------------------
+
+** Synchronous Programming:-
+-> Programs written in C, C++, JAVA, C# - synchronous programs - pieces of code are written , arranged in a sequence 
+and executed in a sequence;
+If among these a long running process comes in, it delays all the subsequent computation, cause until it complete
+execution the remaining cannot execute;
+
+----------------------
+computation 1
+----------------------
+   |
+  \ /
+----------------------
+Long Running
+computation or I/O
+----------------------
+   |
+  \ /
+----------------------
+Computation 2
+----------------------
+    |
+   \ /
+----------------------
+Computation 3
+----------------------
+  
+
+** In asynchronous programming
+--------------------------
+If there are other independent process that are not impacted by the long-running code/process/I/O , then that will also
+simultaneously run, incase any process is dependent on the long running process, then it must be executes only after
+the completion of the long running process;Here callbacks are important since, after completion of the long-running processes,
+the dependent processes can be called;
+
+----------------------
+Computation 1       ----------------------------
+----------------------                          |
+    |                                           |
+   \ /                                         \ /
+----------------------      -------------------------------------------------
+Computation 3                     Long Running computation or I/O
+----------------------       -------------------------------------------------
+                                                    |
+     ------------------------------------------------
+    |                                          
+   \ /
+------------------------
+  Callback
+-------------------------
+Callback -> Javascript function that is passes as a callback to this long running task on completion of the process;
+----------------------------------------------------------------------------------------------------------------------
+-> Node, Async I/O and Callbacks
+----------------------------
+* The node environment consists of a single threaded Event Loop that is running around;
+* It picks up a request from the queue , services the request, so on;
+* Some of the requests may trigger an I/O , and if it is a blocking call, then your event loop will get stuck 
+until the I/O operation is completed;
+* With node because of the fact that there is support for callbacks with the Javascript first-class functions and 
+closures, when you are triggering of the I/O request with the promise that when it completed, come back and call the 
+callback functions that you supplied to it;
+
+So in the event loop you're branching off and then continuing with the subsequent execution by handling for the request
+from your request queue, hence the event loop never gets blocked;
+
+Hence the event loop is always busy, either executing an incoming request or executing a callback that came in when
+an I/O request is completed; A callback which is a function will be put in this request queue and that will be 
+executed in due course when its turn comes;
+
+        request
+     \   | | | |  |  |  |                |                           |      request ->>>        | File/     |
+    -- \ | | | |  |  |  |----------------| Event Loop(Single thread) |                          | Database/ | 
+   |  /  | | | |  |  |  |                |                           | <<-I/O requestcompletion | Processing|
+   |                                               |
+   |                                               |
+   |------------------------------------------------
+            Callback
+   
+   Node's convention
+   ------------------
+   -> 1st parameter for the node callback is an error; 2nd parameter ->  null;
+   
+   callback(error, null);
+   in else callback(null, {
+    perimeter: function() {return (2*(x+y));},
+    area: function() {return (x*y);}
+   });
+   cause of closure, x and y can be accessible inside the function;
+   
+   function(parameters, callback(error,function() {}))
+   --------------------------------------------------------------------------------------------------------------------
+   Node modules ++
+   ---------------
+   Node modules are of 3 types
+   ----------------------
+   a. File-based 0> design our own modules;
+   b. Core Modules - Part of core Node; path, fs, os, util,...
+   c. External Node modules -> 3 party, installed using NPM, node_modules folder;
+   
+   Using the node module
+   ----------------------
+   -> Include them using the require function;
+   -> File-based modules:
+   a. require('./module_name')
+   b. specify the relative/full path to fie;
+   
+   -> core/extrnam modules
+     a. require('./module_name')
+     node_modules or within it; up the folger hierarchy until the module is found;
+     
+     Tour within a node_module
+     ------------------------
+     -> index.js -> starting file;
+     -> package.json
+     -> node_modules (dependent modules);
+     
+     Versions -> Semantic versioning system, 3 digits -> major, minor, patch version;
+     
+   --------------------------------------------------------------------------------------------
+   
+      
