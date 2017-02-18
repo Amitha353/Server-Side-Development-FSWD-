@@ -114,5 +114,11 @@ Browser                                                          Web server
   -----------------
   -> Core networking module supporting a high performance foundation for a HTTP stack;
   -> Using the module: var http = require('http');
-  -> Creating a server: var server = http.createServer(function(req, res){.....});
+  -> Creating a server: var server = http.createServer(function(req, res){.....});//req.header, req.body; res.setHeader, res.statusCode;
   -> Starting the server: server.listen(port,...);
+  
+  ---------------------------------------------------------------------------------------------------------------------------------
+  I. path module -> enables to specify the path to various files, it creates path based on the native operating system of the
+  machine on which the code is running;
+  
+  II. fs (file system) -> checks if file exists; reads file;
