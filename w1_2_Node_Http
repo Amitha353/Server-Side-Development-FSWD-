@@ -1,0 +1,118 @@
+Node and HTTP
+-------------
+The HTTP Protocol
+------------------
+* Client and server
+--------------------
+-> Web applications are not stand-alone, they require communication with the server in the backend (cloud);
+-> The communication between the client and the server is facilitated by the HTTP Protocol;
+
+|       |                                                  | ----cloud---           |
+|Browser| <------------Client-server communication ------->| server <-----> database|
+|       |       HTTP with REST API                         |                        |
+
+Networking Alphabet Soup
+-----------------------
+a. HTTP
+b. URL
+c. JSON
+d. XML
+e. SOAP
+f. REST
+g. GET
+h. PUT
+i. POST
+j. DELETE
+-----------------------------------------------
+-> Client -Server Communication
+------------------------------------
+* Network operations cause unexpected delays;
+* Applications must be written recognizing the asynchronous nature of the communication;(Data is not instantaneously available);
+--------------------------------------------------
+Hypertext Transfer Protocol (HTTP)
+-----------------------------------
+-> Client-server communication protocol, used for exchanging documents between client and server;
+-> Allows retrieving interlinked text documents (hypertext) - World Wide Web;
+-> HTTP Verbs
+--------------
+a. HEAD
+b. GET
+c. POST
+d. PUT
+e. DELETE
+f. TRACE
+g. OPTIONS
+h. CONNECT, etc
+
+        --------------GET/PUT/POST/DELETE--request-------------> 
+Browser                                                          Web server
+        <--------Response----------------------------------------
+        
+ HTTP Request Message
+ --------------------
+ (Client -> Server) - contains three major parts
+ -----------------------------------------------------------------------------------------
+        Request Line (details of the request message)| Method URL Version ; GET /index.html HTTP/1.1
+ ------------------------------------------------------------------------------------------
+        Headers
+        (carries additional information)             | Header Field Name : Value
+                                                     | Header Field Name : Value
+                                                     .... 
+                                                     host: localhost:3000
+ -------------------------------------------------------------------------------------------
+        Blank Line
+ --------------------------------------------------------------------------------------------
+        
+        (optional)     
+        Body
+        (contains data sent from client   (body content) (HTML/XML, BASE64 (binary - ascii/text) - server - binary)
+        to server, if any)
+                
+ ---------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------------------
+ HTTP Response Message
+ -------------------------------------------------------------------------------------------------
+         Status Line | HTTP/1.1 200 OK
+ -------------------------------------------------------------------------------------------------
+         
+         
+         Headers         |Connection: keep-alive
+                         |Content-Type: text/html
+
+ -------------------------------------------------------------------------------------------------
+          Blank Line
+ -------------------------------------------------------------------------------------------------
+
+
+
+        Response Data | <html> .........</html>
+        
+ -----------------------------------------------------------------------------------------------------
+ -> Server may send back data in a specific format:
+ a. extensible Markup Language (XML)
+ b. Javascript Object Notation (JSON)
+ ---------------------------------------------------------------------------------------------------------------------------
+  Response Codes
+  -----------------------
+  code  Meaning
+  -----------
+  200   OK
+  201   Created
+  301   Moved permanently
+  304   Not Modified
+  400   Bad Request
+  401   Unauthorized
+  403   Forbidden
+  404   Not Found
+  422   Unprocessable Entry
+  500   Internal Server Error
+  505   HTTP version Not Supported
+ -----------------------------------------------------------------------------------------------------------------------------
+  Node and the HTTP Module
+  --------------------------
+  * Node HTTP Module
+  -----------------
+  -> Core networking module supporting a high performance foundation for a HTTP stack;
+  -> Using the module: var http = require('http');
+  -> Creating a server: var server = http.createServer(function(req, res){.....});
+  -> Starting the server: server.listen(port,...);
