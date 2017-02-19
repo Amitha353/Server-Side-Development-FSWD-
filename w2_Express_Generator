@@ -1,0 +1,16 @@
+Express Generator
+-----------------
+-> Quick scaffolding tool to generate an Express application skeleton;
+-> Install : npm install express-generator -g
+-> Generatinh an express application: express <App Name>
+ * Generates a folder under the current folder with the name <App name>
+ * Various options are available;
+->  Move to folder and install the node modules; npm install;
+
+-> Generated Application
+-----------------------
+i. app.js -> starting application;
+ii. package,json
+iii. public : static resources
+iv. routes: application routes
+v. views: template enigne templates;
