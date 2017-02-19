@@ -1,0 +1,52 @@
+MongoDB
+-----------
+* Databases
+----------
+-> Databases are used to store structured information;
+-> Databases support various operations on the data
+i. query
+ii. insert
+iii. update
+iv. delete;
+
+-> SQL(Structured Query Language) based on relational databases, have been very popular means of storing data;
+-> NoSQL databases are increasingly becoming popular to address sql database challenges;
+
+NoSQL Databases 
+--------------
+4 different broad categories
+---------------------------
+a. Document databases (MongoDB); JSON document; -> document -> collection -> database
+b. Key-value databases; (Redis)
+c. Column-family databases (Cassandra)
+d. Graph databases (Neo4J)
+
+Why NoSQL?
+-----------
+a. Scalability (the capacity to be changed in size or scale, o be used or produced in a range of capabilities)
+  i. Availability
+  ii. Consistency
+  iii. Partition tolerance
+b. Ease of Deployment
+  - No object-relation mapping required; (map the relatinal data into objects that can be used in the code);
+
+MongoDB
+----------
+-> Documentbased Database;
+-> Mongo Server can support multiple databases simultaneously;
+-> Database consists of a set of collections;
+-> A collection is a set of document;
+-> Document - JSON document;
+
+MongoDB Format
+----------------
+-> When Mongo stores the data on the disk, it stores it in a BSON (Binary JSON format);
+  - Supports the length prefix on each value; easy to skip over a field;
+  - Information about the type of a field value;
+  - Additional primitives types not supported by raw JSON like UTC date time, raw binary, and OjectId are allowed in BSON;
+
+MongoDB ObjectId
+-------------------
+-> Every document in Mongo must have an "_id" field that is unique, could be created by default;
+-> ObjectId is a 12 byte field: |Timestamp (4) | Machine ID (3) | Proc. ID(2) | Increment (3) |
+id.getTimestamp() -> returns the timestamp in ISO Date format;
