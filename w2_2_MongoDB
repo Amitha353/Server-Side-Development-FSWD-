@@ -50,3 +50,8 @@ MongoDB ObjectId
 -> Every document in Mongo must have an "_id" field that is unique, could be created by default;
 -> ObjectId is a 12 byte field: |Timestamp (4) | Machine ID (3) | Proc. ID(2) | Increment (3) |
 id.getTimestamp() -> returns the timestamp in ISO Date format;
+
+
+https://www.mongodb.com/
+mongod --dbpath=data
+mongo
