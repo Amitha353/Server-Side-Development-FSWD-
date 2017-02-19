@@ -1,0 +1,101 @@
+Express
+--------------------
+-> Express is a powerful web framework;
+-> Express: Fast, unopinionated, minimalist web framework for node.js built on top of the http protocol, to build a full 
+fledged web server application;
+-> Web application framework that provides a robust set of features;
+-> Uses many third-party middleware to extend functionality;
+-> Install : npm install express --save
+
+Express Middleware
+------------------
+-> Middleware provide a lot of plug-in functionality that can be used within Express application; (Morgan ,etc)
+npm install morgan --save;
+ * morgan for logging 
+ var morgan = require('morgan');
+ app.use(morgan('dev'));
+ 
+ * Serving static web resource
+ app.use(express.static(_dirname + '/public'));
+ note: __dirname and __filename give the full path to the file and directory for current module;
+-----------------------------------------------------------------------------------------------------------------------------------
+REST (Representational State Transfer)
+--------------------------------------
+Web Services
+-------------
+-> A system designed to support interoperability of systems connected over a network;
+-> It is a Service Oriented Architecture (SOA);(somebody provides service and somebosy else consumes the services);
+-> A standardized way of integrating web-based applications using open standards operating over the system;
+-> 2 common approaches used in practice:
+a. SOAP (Simple Object Access Protocol) based services;
+  i. Uses WSDL (Web Servie Description Language);
+  ii. XML based;
+  iii. More suitable for distributed operation across the internet;
+b. REST (Representation State Transfer)
+   i. Use Web standards
+   ii. Exchange od data using XML or JSON;
+   iii. Simple compared to SOAP, WSDL, etc;
+   
+Representational State Tranfer (REST)
+---------------------------------------
+-> A style of software architecture for distributed hypermedia systems such as the World Wide Web;
+-> Introduced by Roy Fielding; One of the principal authors of the HTTP specifications;
+-> It is a collection of the network architecture principles which outline how resources are defined and addressed;
+
+-> Four basic design principles:
+--------------------------------
+a. Use HTTP methods explicitly;
+b. Be stateless;
+c. Expose resource like directory structure-like URIs
+d. Transfer using XML, JavaScript Object Notation(JSON), or both;
+
+REST and HTTP
+--------------
+-> The motivation for REST was to capture the characteristics of the Web that made the Web successful;
+  a. URI (Uniform Resource Indicator) Addressable resources;
+  b. HTTP Protocol;
+  c. Make a Request - Receive a Response - Display Response;
+-> Exploits use of the HTTP protocol b- GET, PUT , POST, DELETE;
+-> Preserves Idempotence. (Some operations when performed repeatedly, will not cause any change in state);
+
+REST concepts
+-----------------
+-> Nouns : Resources - unconstrained (http://www.world.com)
+-> Verbs - constrained : GET, PUT, POST, DELETE 
+-> Representation - constrained : XML, JSON;
+
+Verbs mapped to CRUD;
+a. HTTP GET <-> R     (READ)
+b. HTTP POST <-> C    (CREATE)
+c. HTTP PUT <-> U     (UPDATE)
+d. HTTP DELETE <-> D  (DELETE)
+
+Stateless Server
+----------------
+-> The server side should not track the client state: Every request is a new request from the client, cause of scalability;
+-> Client side should track its own state, and when the client request the server it sends it the complete state information
+to remind the server, current status and expected outcome;
+-> The client tracks itself using cookies, client side database;
+-> Every request must include sufficient information for the server to serve up the requested information
+-> Hence, client-side MVC ARCHITECTURE IS USEFUL FOR THE IMPLEMENTATION;
+------------------------------------------------------------------------------------------------------------------------------------
+Express Router
+-------------
+-> Express supports developing servers that can serve up the REST API through various methods that it supports - app.all,app.get,
+app.post, app.put, app.delete methods;
+
+Example : app.get('/dishes/:dishId', function(req, res, next) {
+  res.end('Will send details of the dish:' + req.params.dishId + 'to you!')
+});
+
+Body Parser
+-----------
+-> Middleware to parser the body of the message into a javascript object;
+-> Using Body Parser:
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); //parse the JSON in the body
+-> Parses the body of the message and populates the req.body property;
+
+Express Router
+-----------------
+-> Express Router creates a mini-express application;
