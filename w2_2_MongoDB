@@ -55,3 +55,10 @@ id.getTimestamp() -> returns the timestamp in ISO Date format;
 https://www.mongodb.com/
 mongod --dbpath=data
 mongo
+----------------------
+32-bit system;
+download mongodb compatible with 32-bit operating system;
+-> create a data/db folder  as well as mongodb folder;
+(within the MongoDB\Server\3.2\bin)
+->  cmd -> mongod --storageEngine=mmapv1 --dbpath=C:\data\db
+-> cmd -> mongo.exe
