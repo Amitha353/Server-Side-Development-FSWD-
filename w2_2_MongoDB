@@ -62,3 +62,19 @@ download mongodb compatible with 32-bit operating system;
 (within the MongoDB\Server\3.2\bin)
 ->  cmd -> mongod --storageEngine=mmapv1 --dbpath=C:\data\db
 -> cmd -> mongo.exe
+
+
+within the installed folder
+cmd1: mongod --storageEngine=mmapv1 --dbpath=C:\data\db
+cmd2: mongo.exe
+
+Instructions
+----------------
+i.  db
+ii. use conFusion
+iii.db
+iv. db.help()
+v. db.dishes.insert({ name: "Uthapizza", description: "Test" });
+vi. db.dishes.find().pretty();
+vii.var id = new ObjectId();
+     id.getTimestamp();
