@@ -1,0 +1,44 @@
+Node and MongoDB
+--------------------
+
+Node MongoDB Driver
+---------------------
+-> Node MongoDB Driver provided by the MongoDB developers;
+-> Provides a high-level API for a Node application to interact with the MongoDB Server;
+-> npm install mongodb --save
+
+MongoDB Driver
+---------------
+-> The Node MongoDB driver supports several operations that can be performed from Node Application;
+-> Connecting to a MongoDB;
+-> Inserting, deleting, updating and querying documents;
+-> Supports both callback and promise based interactions;
+
+* ops -> array that returns the result;
+----------------------------------------------------------------------------
+Mongoose ODM
+-------------
+
+-> MongoDB stores data in the form of documnets;
+-> No structure imposed on the document, any document can be stored in any collection;
+
+-> If there is a requirement for the inserted documents in a collection to maintain a specific structure than MongooseODM is ideal choice;
+
+-> Mongoose ODM - node module provides a lot of relational features for structuring the data/document;
+ODM 
+-> Object Data Model
+-> Object Document Mapping
+-> Object relational mapping
+
+-> Adds structure to MongoDB documents through schema;
+
+-> Mongoose ODM node module is build over MongoDB;
+
+-> Mongoose schema
+-------------------------
+* schema -> structure of the data stored;
+* Defines all the fields of the document and their types; Can do validation;
+* Schema types: String, Number, Date, Buffer, Boolean, Mixed, ObjectId, Array;
+* Schema is used to create a Model function;
+
+
