@@ -2,7 +2,7 @@ Express Generator
 -----------------
 -> Quick scaffolding tool to generate an Express application skeleton;
 -> Install : npm install express-generator -g
--> Generatinh an express application: express <App Name>
+-> Generating an express application: express <App Name>
  * Generates a folder under the current folder with the name <App name>
  * Various options are available;
 ->  Move to folder and install the node modules; npm install;
@@ -13,4 +13,18 @@ i. app.js -> starting application;
 ii. package,json
 iii. public : static resources
 iv. routes: application routes
-v. views: template enigne templates;
+v. views: template engine templates;
+
+* Express is a Node.js wed application framework that provides a robust set of features for web development and 
+mobile development;
+* API -> with a myriad of HTTP utility methods and middleware , creating APIs is quick and easy;
+* Express application generator is a tool to create an application skeleton;
+* In express 3.0 , app.config or app.use() were used to require any middleware;
+* In express 4.0, all middleware has been removed and can be maintained and updated independetly from core Express
+(expect the statis middleware) , thus they are called in the app.js;
+* The bin\ directory serves as a location where you can define various startup scripts -> www example of how it
+should look like, without touching app.js;
+
+* correct way to start express is -> npm start; deploy - heroku -> web: npm start;
+
+
