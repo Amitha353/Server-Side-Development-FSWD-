@@ -1,0 +1,53 @@
+Cookies- Express Sessions
+----------------------------
+-> Cookies are a way for the server to track clients , and also for clients to send small piece of information to the server;
+-> Express Sessions are a way of managing user sessions on the server side;
+-> Since the server side is designed to be stateless, and hence server can get client status via cookies or express sessions;
+
+HTTP Cookies
+-----------
+-> Small piece od data sent from a web server and stored on the client side;
+-> Each subsequent request from the client side includes the cookie in the request header;
+
+Cookie
+---------
+Client                                                                              Server
+-----                                                                             -------------
+|                                                                                     |
+|                                                                                     |
+            <------------------HTTP/1.1 401 Unauthorized---Set-Cookie: xxx ...
+            ---->-Get/index.html HTTP/1.1 Cookie: xxx... Host: www.cse.com .....>
+            
+Express and Cookies
+--------------------
+-> Server can set cookie as follows in any middleware:
+res.cookie(name, value, options)
+-> Cookies are parsed in Express server using the cookie-parser middleware
+  var cookieParse = require('cookie-parser');
+  app.use(cookieParser());
+-> Cookie-parser parsees incoming cookies and attaches them to request;
+  req.cookies.name;
+
+Express and Signed Cookies
+--------------------------
+-> Ordinary cookies can be forged and hence cookies are digitally signed;
+* Signed cookie: signed with a secret key on the server side;
+    - Digital signature with key-hash message authentication code (verifiable);
+* Cookie parser supports signed cookies:
+  var cookieParser = require('cookie-parser');
+  app.use(cookieParser('secret key'));
+* Parserd signed cookies made available as:
+  req.signedCookies.name
+ 
+ Express Sessions
+ ------------------
+ -> Used to track user session
+    * combination of cookie with session id and server-side storage of information indexed by session id;
+    * Session information:
+      - Stored by default in-memory (wiped out when the server restarts);
+      - Stored in permanent store on server side;
+      - Distributed session store if usingf multiple replicated servers;
+
+ 
+ 
+ 
