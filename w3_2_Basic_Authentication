@@ -1,0 +1,49 @@
+Basic Authentication
+-------------------
+HTTP Basic Access Authentication
+----------------------------------
+-> Method for HTTP user agent to provide username and password with a request;
+-> Server can challenge a client to authenticate itself;
+-> Client needs to send a response;
+
+Client                                                                Server
+  |                                                                     |
+  |   -----Initiates request--->                                        |
+  
+    <---HTTP/1.1 401 UNAUTHORIZED  WWW-Authenticate : Basic ----------  |
+    
+    -->---Get/index.html HTTP/1.1 ----Authorization : Basic (Base64 encoded string)- Host: www.....com -------->
+    
+  Authorization Header
+  -------------------------
+  -> Authorization Header is constructed as follows:
+  1. Username and password are combined into a string "username:password".
+  2. The resulring string literal is then encoded using Base64;
+  3. The authorization method and a space, i.e. "Basic" is put before the encoded string;
+  
+  Authorization: Basic (Base64 Encoded string);
+  
+  Express and Authentication
+  ---------------------------
+  
+  Express application is structured as a sequence of middleware that are executed in a sequence one after another;
+  Middleware
+      |
+      |
+     \ /
+  Middleware
+      |
+      |
+     \ /
+  Authentication Middleware-----
+      |Authenticated            |
+      |Next();                  |
+     \ /                        |Not Authenticated
+   Middleware                   |Next(error);
+      |                         |
+      |                        \ /
+     \ /                    Error Handler
+   Middleware
+   
+  
+   
