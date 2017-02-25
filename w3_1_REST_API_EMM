@@ -1,0 +1,45 @@
+REST API with Express, MongoDB and Mongoose
+-------------------------------------------------
+Any Request coming into the REST server on any of the REST endpoint would entail a corresponding operation on the MongoDB,
+either to fetch data, or save data , update the existing data, or delete data on the database server;
+
+Full-Fledged REST API Server
+---------------------------------
+-> Able to interact with the MongoDB database with our express server;
+
+             |          |
+             |          |
+             |  Server  |                               |         |
+             | REST API |                               | Database|
+             |          |                               |         |
+             |          |
+
+******GET***>                   ****QUERY*****>
+////POST////>                    ///CREATE/////>
+
+
+HTTP REQUEST to Database Operation Mapping
+---------------------------------------------
+-> Every incoming request needs to be decoded to decide the nature of the request:
+* GET, PUT, POST, DELETE;
+* Resource affected;
+* Data in body of request;
+
+-> Translate request to an equivalent database operation;
+
+Express Router + MongoDB + Mongoose
+-------------------------------------
+The express server is created using the express router to support the various REST API operations;
+Each method to the server will trigger a corresponding MONgoDB request;
+
+Router(). route('/uri')        | Mongoose Schema + MongoDB
+.get(                          |
+-------------------------------|->  Dishes.find({},  );
+)                              |
+                               |
+.post(                         |
+-------------------------------|->  Dishes.create(   ) 
+)                              | 
+ 
+ ..........
+ ---------------------------------------------------------------------------------------------
