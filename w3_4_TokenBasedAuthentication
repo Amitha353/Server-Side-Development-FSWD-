@@ -1,0 +1,99 @@
+Token Based Authentication
+--------------------------
+
+Cookies+ Sesssion Authentication
+--------------------------------
+-> Cookies set on the client side by the server;
+-> Cookies used as a storage for session ID that is used as an index server-side storage of session information;
+-> Becomes unscalable when it is required to tracked million plus users, on the server side;
+-> Needs to supports multiple client devices;
+
+-> In cookie based authentication the user identifies themselves with the user name and password and the server will set the cookie on 
+the client side;
+
+Why Token-Based Authentication? (Problems withe cookie-based authentication)
+-------------------------------
+-> Session authentication becomes a problem when we need stateless servers and scalability;
+-> Mobile application platforms have a hard time handling cookies/ sessions;
+-> Sharing authentication with other applications not feasible;
+-> Cross-origin resource sharing (CORS) problem;
+-> Cross-site request forgery (CSRF);
+
+Token Based Authentication
+----------------------------
+i. User requests access with their username and password.
+ii. Server validates credentials;
+iii. Server creates a signed token and sends it to the client; Nothing stored on the server;
+iv. All the subsequent requests from the client should include the token;
+v. Server verifies the tojken and responds with data if validated;
+
+JSON Web Tokens (JWT)
+-----------------------
+-> Token web standard;
+-> standards based: IETF RFC 7519* (Internet Engineering Task Force Request For Comments)
+-> self-contained : carry all the information necessary within itself;
+-> shareable : can share it with other applications to act on your behalf;
+
+------------------------------------------------------------------------------
+      Header          |           Payload       |   Signature             
+--------------------------------------------------------------------------------
+* Header
+------------
+{
+  "typ" : "JWT",
+  "alg" : "HS256"//encrypption standard;
+}
+
+* Payload //information carried by the JSON token
+------------
+{
+  "$__": {
+  
+  }
+  ...
+  _doc: { //carries user information
+  }
+  ...
+}
+
+*Signature
+---------------
+HMACSHA256(
+base64UrlEncode(header)+"."+
+base64UrlEncoded(payload),
+secret
+)
+
+
+jsonwebtoken Node Module
+---------------------------
+-> Implementation of JSON web tokens support;
+npm install jsonwebtoken --save
+
+-> Provides several methods:
+- sign() for signing and issuing token;
+- verify() for verifying and decoding token and making it available on the request property in express;
+
+Passport
+---------
+-> Authentication middleware for Node.js
+-> Modular , flexible;
+-> Supports various strategies for authentication:
+  * Local strategy (authenticate users locally using username and password);
+  * OpenID
+  * Oauth (Facebook, Twitter, G+ etc.) single sign-on
+ -> Installing
+    npm install passport --save
+
+passport manages a lot of intricacies related to user authentication;
+
+Passport-Local
+--------------
+-> Passport strategy for authenticating a user with username and password;
+-> Installing: npm install passport-local --save
+
+Passport-Local-Mongoose
+-------------------------
+-> Moongoose plugin to simplify username and password login;
+-> npm install passport-local-mongoose --save
+-> Makes available Moongoose schema support for managing users;
