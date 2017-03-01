@@ -39,4 +39,74 @@ Cryptography
                                      Cannot decrypt
 But public key cryptography is not used widely since it is computationally expensive;
 
-Hence we use public key cryptography between the sender and receiver;
+Hence we use public key cryptography between the sender and receiver initially to agree on a secret key , and there after
+they can be in symmetry and symmetric key cryptography can be performed between each other;
+SSL protocol uses this;
+
+Secure Sockets Layer (SSL) / Transport Layer Security (TLS)
+-------------------------------------------------------------
+-> These are cryptographic protocols that enable secure communication between sender and receiver, over an insecure network
+like the internet;
+-> The sender and receiver communicate over the internet using encrypted messages, which only the sender and receiver can 
+decrypt; 
+-> Privacy and Integrity of the communication is protected - uses a combination of public-key cryptography and symmetric 
+cryptography;
+
+
+SSL/TLS Handshake
+-------------------
+CA -> Certification Authority;
+
+                   Client                                                              Server
+                   |------I need to communicate with you securely---------->------------->|
+                   |<--Here's my certificate-(public key + certificate by CA)-------------|
+Verify server      |                                                                      |                                                   
+credentials        |                                                                      |
+                   |---Pre-master secret encrypted with server's public key-------------->|
+Generate Session   |                                                                      | Generate Session
+Key                |<-------Symmetric encryprion from now on ---------------------------->| Key       
+                   |                                                                      |
+                   |------- Message encrypted with Session Key---------->---------------->|
+                   |<----Message encrypted with Sesion key -------------------------------|
+
+HTTPS
+-----------
+ HTTP Over Secure Socket Layer
+ 
+ Client                                                                                      Server
+ ----------                                                                                -------------
+ | HTTP   |                                                                                 |   HTTP    |
+ ----------                                                                                --------------
+ | SSL/TLS|   <---------Secure communication--------------------------------->              |  SSL/TLS  |
+ ----------                                                                                --------------
+ | TCP    |                                                                                 |   TCP     |
+ ----------                                                                                --------------
+ | IP     |                                                                                 |    IP     | 
+ ---------------------------------------------------------------------------------------------------------
+ |                                          UNDERLYING NETWORK                                            |   
+ ----------------------------------------------------------------------------------------------------------
+
+Generating Keys
+---------------
+The server needs public key and private key for public key cryptrography;
+Certification process is required, where a certification authority - Vetisign or Thawte; They will verify and assign
+a public key private key pair and sign on the public key with their own signature for the respective server;
+
+That will be a process of establishing your authenticity to any client that want to communicate with the server;
+// Computer networks - James Kurose and Keith Ross;
+
+Tool called ->OpenSSL - to generate self-signed keys;// testing
+
+-> Use openssl for generating keys for testing
+a. openssl genrsa 1024 -> private.key;
+b. openssl req -new -key private.key -out cert.csr
+c. openssl x509 -req -in cert.csr -signkey private.key -out certificate.pem
+
+-> foe production environment / deploying to the production server you need to get keys and certificate from a 
+certificate authority(CA) e.g.,Verisign, Thawte;
+
+Node HTTPS Module
+------------------
+-> Node supports https as its core module;
+-> need http; and private.key and certificate.pem, file system module is used to read private.key and certificate.pem;
+----------------------------------------------------------------------------------------------------------------------------
