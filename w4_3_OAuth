@@ -1,0 +1,62 @@
+OAuth and User Authentication
+---------------------------------
+OAuth providers -> Facebook, Google, Microsoft, Instagram, GitHub ,etc;
+
+OAuth 1 and OAuth 2
+--------------------
+-> Authorization Protocols;
+-> Authorization framework based on open standards for Internet users to log into third party websites/apps using their 
+Social Network accounts;
+-> Facebook, Google, Twitter, Microsoft, Instagram, Github, DigitalOcean, etc;
+-> OpenID is a related but complementary service;
+
+-> OAuth 1 protocol
+-------------------
+- First evolved from Twitter (Blaine Cook)
+- IETF RFC 5849
+
+-> OAuth 2 protocol
+--------------------
+- Focuses on simplifying client development
+- IETF RFC 6749
+- Bearer token usage IETF RFC 6750;
+
+OAuth 2 Roles
+--------------------
+* Resources owner: You, the user that authorize a client application to access their account;
+* Client Application: Application (website/app) that wants access to the resource server to obtain information about you;
+* Resource Server: Server hosting protected data (e.g., your personal information)
+* Authorization Server: Server that issues an access token to the client appplication to request resource from the resource server;
+
+OAuth 2 Tokens
+---------------
+-> The Access token is issued by the authorization server that is part of OAuth 2 service provider;
+-> The client application approaches the OAuth 2 service provider upon the users authorization, Authorization server issues
+ token to client application;
+-> Access token : allows access to user data by the client application;
+* Has limited lifetime;
+* Needs to be kept confidential;
+* Scope: parameters used to limit the rights of the access token;
+-> Refresh token : Used to refresh an expired access token;
+
+Client Application Registration
+--------------------------------
+-> In order to access the OAuth service provider, every client application needs to register with the OAuth service provider, 
+through a registration process;
+-> Register the client appllication on OAuth service provider, and obtain:
+ i. Client App Id
+ ii. Client Secret;
+- After authorization 
+ iii. Redirect URL: URLs for the client for receiving the authorization code and access token;
+ 
+
+
+
+
+
+
+
+
+
+
+
