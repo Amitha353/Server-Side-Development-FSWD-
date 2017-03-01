@@ -1,0 +1,42 @@
+HTTPS and Secure Communication
+------------------------------
+The usernname and password submitted in plain text format transmitted on the standard http ptotocol is
+easily subjected to capture by an intruder; 
+Hence secure communication is required;
+
+Cryptography
+------------
+* Symmetric Key Cryptography
+----------------------------
+-> Symmetric Encryption:
+------------------------------
+* Shared secret key between the two parties;
+
+       Sender                                                          Receiver
+ 
+ Message -> + ------------------> Encrypted Message -------------------> + -> Message
+            /\                            |                              /\
+             |                            |                               |    
+         Secret key              Malicious Third Party                  Secret key
+                                     Cannot decrypt
+   
+ But in cases we don't know the receiver, the shered keep upon which both parties need to agree upon fails;
+----------------------------------------------
+* Public Key Cryptography
+----------------------------
+-> Asymmetric Encryption:
+---------------------------
+- Public key that can be widely distributed;
+- Private key that is only known to the receiver;
+
+
+       Sender                                                           Receiver
+ 
+ Message -> + ------------------> Encrypted Message -------------------> + -> Message
+            /\                            |                              /\
+             |                            |                               |    
+         public key              Malicious Third Party                  private key
+                                     Cannot decrypt
+But public key cryptography is not used widely since it is computationally expensive;
+
+Hence we use public key cryptography between the sender and receiver;
