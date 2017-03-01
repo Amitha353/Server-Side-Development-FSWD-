@@ -1,0 +1,26 @@
+Mongoose Population
+-----------------------
+
+MongoDB and Relations
+---------------------
+-> NoSQL databases like MongoDB do not explicitly support relations like the sql databases;
+-> All documents are normally expected to be self-contained;
+-> However you can store references to other documents within a documnet by using ObjectIds.
+-> Mongoose does not have joins;
+
+Mongoose Population
+-----------------------
+-> Population is the process of automatically replacing specified paths within a document with documnets from
+another collection;
+-> This is where the cross-reference with ObjectIds helps;
+
+Populating the Documents
+---------------------
+Dishes.find({})
+.populate('comments.postedBy') //postedBy is the field the comments sub-document and mongoose extracts it 
+//before it sends information back to the user;
+.exec(function(err, dish) {
+if(err) throw err;
+ res.json(dish);
+});
+----------------------------------------------------------------------------------------------------------------------------------
