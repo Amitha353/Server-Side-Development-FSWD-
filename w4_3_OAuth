@@ -70,7 +70,13 @@ ______________   |          |                                        |  Authoriz
 |             |<-----7.Resource sent----------------------------------| Server         |
 |_____________|                                                       |________________|
 
+After the 7 step process, the client appliaction will then issue a JWT  tpken to the resource owner;
+Then the resource owner can use the JWT token to access the REST API;
 
-
+Passport-Facebook Module
+-----------------------------
+-> Passport strategy for authenticating with Facebook usin OAuth 2.0 API;
+-> npm install passport-facebook --save
+-> var FacebookStrategy = require('passport-facebook').Strategy;
 
 
