@@ -50,11 +50,25 @@ through a registration process;
  iii. Redirect URL: URLs for the client for receiving the authorization code and access token;
  
 
-
-
-
-
-
+Authorization Code Grant Approach
+-------------------------------------
+-> This is one OAuth authorization service, and is used when the client application is a web server;
+-> The client application approaches the server and the server provides a long-lived access token;
+_____________                                                         OAuth Service
+|            |                                                         Provider
+| Resource   |   ___________                                          ________________ 
+|Owner (User)|---|-(User----| 2. User authorizes the client app----->|                |     
+|____________|   |  Agent)  |                                        |                |
+______________   |          |                                        |  Authorization |
+|             |--|-(browser)|-1.--User authorization request-------->|    Server      |
+|             |  |__________|                                        |                |
+| Client      |<----3. Authorization code sent to client app---------|                |
+| Application |-------4. Access token request----------------------->|                | 
+|(Rest API    |<-----5. Access token granted-------------------------|________________|
+| Server)     |                                                       ________________
+|             |--6. Resource(e.g. profile) request with access token->| Resource       |
+|             |<-----7.Resource sent----------------------------------| Server         |
+|_____________|                                                       |________________|
 
 
 
