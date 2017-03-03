@@ -1,0 +1,81 @@
+Backend as a Service
+---------------------
+* Building your own backend approach is cumbersome;
+-> Server set up and configuration issues;
+-> Backend storage and database provisioning;
+-> Developing the REST API and configuration;
+-> Additional services like notifications, user management, social networking etc. adds to the burden on developers;
+
+* Can we package the whole backend services into easily deployable, configurable and manageable service?
+
+BaaS
+----
+-> Model for providing mobile and web developers to link their applications to backend cloud storage and APIs exposed by the
+backend;
+-> Relatively recent phenomenon in mobile and web development;
+-> Provides a bridge between the front end and various cloud backends through a unified API and SDK;
+
+-> Frees the developers from having to do backend development and instead concentrate on the frontend;
+-> If you are familiar with cloud computing you might have heard about Infrastructure as a Service (IaaS), Platform as a 
+Service (PaaS) and Software as a Service (SaaS);
+-> BaaS is targeted mainly at mobile and web developers to access cloud services, hence distinct from the above *aaS;
+
+What does Baas Provide?
+i. Push Notification;
+ii. File Storage & Sharing; //Drop-box application;
+iii. Social Networking configuration;
+iv. Messaging and Chat capabilities;
+v. User Mnagement;
+vi. Usage Analysis tools;
+vii. Build and execute business logic;
+
+a. A data storage API for cloud based storage;
+b. Binary Storage;
+c. Device Synchronizing & caching capabilities;
+d. Online/offilne workflow;
+e. Third party Integration;
+f. Secure connectivity;
+g. Auto generation of REST based interfaces;
+h. SDKs for typical mobile platforms;
+
+BaaS Advantages and Disadvantages
+------------------------------------
+Advantages :-
+------------
+a. Pre-built, tried and test components;
+b. Reduction in server-side development effort;
+c. Recent technological developments integrated by the service provider and made accessible to developers;
+
+Disadvantages :-
+---------------
+-> Blabk-box;
+-> Vendor-lock ; data locked withe service provider;
+-> Loss of flexibility;
+-> Additional training needed in vendor-specific APIs;
+
+* Commercial Vendors
+---------
+-> IBM Bluemix, etc;
+
+
+* Open Source 
+----------------
+-> Loopback, etc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
