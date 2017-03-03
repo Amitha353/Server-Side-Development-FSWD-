@@ -40,5 +40,8 @@ ODM
 * Defines all the fields of the document and their types; Can do validation;
 * Schema types: String, Number, Date, Buffer, Boolean, Mixed, ObjectId, Array;
 * Schema is used to create a Model function;
-
+---------------------------------
+use conFusion
+db.users.find().pretty();
+db.users.update({username:"admin"}, {$set: {admin:true}});
 
